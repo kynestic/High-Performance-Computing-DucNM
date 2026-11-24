@@ -23,6 +23,7 @@ Quy ước đặt tên thư mục: chữ thường, không dấu, không khoản
 | [`vinhvn/`](vinhvn/) | (điền) | (điền) | Model parallelism (§2): pipeline và tensor parallelism trên nhiều GPU, tự cài đặt bằng C (tuần tự) và CUDA (song song), không dùng thư viện; đối chứng PyTorch trong `reference_pytorch/` |
 | [`hieunv/`](hieunv/) | (điền) | (điền) | Đo lại mục 3 của Parallel and Distributed Deep Learning: CPU so với GPU (convolution, matvec), đối chiếu với bài báo, kiểm chứng băng thông bộ nhớ |
 | [`tuannn/`](tuannn/) | Tuan Nguyen | [tuannt2906](https://github.com/tuannt2906) | Huấn luyện CNN song song/phân tán tự cài đặt bằng C/MPI/OpenMP/CUDA: bản tuần tự và bản song song, Sync SGD, Parallel SGD, ADMM, Downpour, 6 thuật toán allreduce |
+| [`thinhnd/`](thinhnd/) | Nguyen Duc Thinh | [ducthinhh1002](https://github.com/ducthinhh1002) | CNN tự viết bằng C/MPI/CUDA chạy trên RTX 4060: so ở cùng accuracy, ảnh hưởng của gradient trễ theo learning rate, CPU so với GPU trên cùng laptop |
 | [`ltnaphixay/`](ltnaphixay/) | LATTANA APHIXAY | [infinityrbx](https://github.com/infinityrbx) | SGD song song dữ liệu trên CUDA với allreduce tự viết (tree, ring, recursive doubling): đo chi phí truyền thông trên 2× T4 (PCIe) và 4× A100 (NVLink so với qua host), so với mô hình α–β của bài |
 | (thư mục của bạn) | | | |
 

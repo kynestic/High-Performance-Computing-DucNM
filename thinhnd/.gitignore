@@ -1,0 +1,11 @@
+# Sinh ra khi build / chạy
+bin/
+build/
+__pycache__/
+*.pyc
+*.exe
+# Dữ liệu: cách tải ghi trong README
+cnn/data/
+# Thông tin đăng nhập
+.env
+*kubeconfig*
