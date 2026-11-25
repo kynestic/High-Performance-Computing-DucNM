@@ -1,0 +1,59 @@
+{
+  "problem": "ridge linear regression",
+  "data": {
+    "n": 8192,
+    "d": 512,
+    "batch": 128,
+    "epochs": 5,
+    "lr": 0.05,
+    "lambda": 0.0001,
+    "seed": 2026
+  },
+  "training": {
+    "cpu_seconds": 0.020469399634748697,
+    "loss": 0.0025342251174151897,
+    "cpu_weight_error": 0.017910974100232124
+  },
+  "gemm": {
+    "shape": [
+      4096,
+      512,
+      512
+    ],
+    "cpu": {
+      "median_seconds": 0.01149065000936389,
+      "gflops": 186.8896577869821
+    },
+    "gpu": null,
+    "gpu_reason": "PyTorch unavailable"
+  },
+  "communication": {
+    "model": "ring allreduce reduce-scatter + allgather",
+    "alpha_seconds": 3e-06,
+    "bandwidth_bytes_per_second": 5000000000.0,
+    "batches_per_epoch": 64,
+    "rows": [
+      {
+        "workers": 2,
+        "gradient_bytes": 2048,
+        "step_comm_seconds": 6.4096000000000004e-06,
+        "epoch_comm_seconds": 0.00041021440000000003,
+        "epochs_comm_seconds": 0.002051072
+      },
+      {
+        "workers": 4,
+        "gradient_bytes": 2048,
+        "step_comm_seconds": 1.86144e-05,
+        "epoch_comm_seconds": 0.0011913216,
+        "epochs_comm_seconds": 0.0059566079999999995
+      },
+      {
+        "workers": 8,
+        "gradient_bytes": 2048,
+        "step_comm_seconds": 4.2716800000000004e-05,
+        "epoch_comm_seconds": 0.0027338752000000003,
+        "epochs_comm_seconds": 0.013669376
+      }
+    ]
+  }
+}

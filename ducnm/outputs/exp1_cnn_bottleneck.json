@@ -1,0 +1,166 @@
+{
+  "experiment": "exp1_cnn_matmul_bottleneck",
+  "model": "SmallCNN (1x28x28 -> Conv8@5x5 -> Pool -> Conv16@5x5 -> Pool -> FC64 -> FC10)",
+  "parameters": 54314,
+  "direct_vs_im2col": {
+    "layer": "Conv1 (1->8, 5x5, 28x28)",
+    "batch": 4,
+    "max_abs_diff": 2.86102294921875e-06,
+    "direct_loop_ms": 475.06040008738637,
+    "im2col_gemm_ms": 0.5024999845772982,
+    "speedup_im2col_over_direct": 945.3938600356497,
+    "source": "real_cpu_measurement"
+  },
+  "cpu_breakdown": [
+    {
+      "batch": 16,
+      "flops": {
+        "conv_gemm": 70246400,
+        "fc_gemm": 4878336,
+        "total_gemm": 75124736,
+        "non_gemm_ops": 937480,
+        "total_flops": 76062216
+      },
+      "gemm_flop_pct": 98.76748266182516,
+      "conv_gemm_flop_pct": 92.35386988988067,
+      "fc_gemm_flop_pct": 6.413612771944483,
+      "cpu_total_ms": 15.649099601432681,
+      "cpu_conv_gemm_ms": 3.2324499916285276,
+      "cpu_fc_gemm_ms": 0.553449965082109,
+      "cpu_gemm_ms": 4.103949759155512,
+      "cpu_im2col_col2im_ms": 4.416649928316474,
+      "cpu_elementwise_pool_sgd_ms": 7.128499913960695,
+      "cpu_gemm_time_pct": 26.224829949831705,
+      "cpu_im2col_time_pct": 28.223029061123288,
+      "cpu_elem_time_pct": 45.55214098904501,
+      "cpu_effective_gflops": 4.860485135709435,
+      "source": "real_cpu_measurement"
+    },
+    {
+      "batch": 64,
+      "flops": {
+        "conv_gemm": 280985600,
+        "fc_gemm": 19513344,
+        "total_gemm": 300498944,
+        "non_gemm_ops": 3098152,
+        "total_flops": 303597096
+      },
+      "gemm_flop_pct": 98.97951856561896,
+      "conv_gemm_flop_pct": 92.55213692821357,
+      "fc_gemm_flop_pct": 6.427381637405386,
+      "cpu_total_ms": 85.4467999888584,
+      "cpu_conv_gemm_ms": 14.423300162889063,
+      "cpu_fc_gemm_ms": 3.4944999497383833,
+      "cpu_gemm_ms": 42.5114999525249,
+      "cpu_im2col_col2im_ms": 16.880500130355358,
+      "cpu_elementwise_pool_sgd_ms": 26.054799905978143,
+      "cpu_gemm_time_pct": 49.75200938837741,
+      "cpu_im2col_time_pct": 19.755567361863104,
+      "cpu_elem_time_pct": 30.492423249759483,
+      "cpu_effective_gflops": 3.5530540176997465,
+      "source": "real_cpu_measurement"
+    },
+    {
+      "batch": 128,
+      "flops": {
+        "conv_gemm": 561971200,
+        "fc_gemm": 39026688,
+        "total_gemm": 600997888,
+        "non_gemm_ops": 5979048,
+        "total_flops": 606976936
+      },
+      "gemm_flop_pct": 99.01494642623456,
+      "conv_gemm_flop_pct": 92.58526422822762,
+      "fc_gemm_flop_pct": 6.429682198006944,
+      "cpu_total_ms": 181.35929992422462,
+      "cpu_conv_gemm_ms": 43.068600236438215,
+      "cpu_fc_gemm_ms": 9.469499927945435,
+      "cpu_gemm_ms": 88.23620027396828,
+      "cpu_im2col_col2im_ms": 38.49784983322024,
+      "cpu_elementwise_pool_sgd_ms": 54.62524981703609,
+      "cpu_gemm_time_pct": 48.65270229364309,
+      "cpu_im2col_time_pct": 21.227392170848354,
+      "cpu_elem_time_pct": 30.119905535508554,
+      "cpu_effective_gflops": 3.3468200211051022,
+      "source": "real_cpu_measurement"
+    },
+    {
+      "batch": 256,
+      "flops": {
+        "conv_gemm": 1123942400,
+        "fc_gemm": 78053376,
+        "total_gemm": 1201995776,
+        "non_gemm_ops": 11740840,
+        "total_flops": 1213736616
+      },
+      "gemm_flop_pct": 99.03266986879795,
+      "conv_gemm_flop_pct": 92.60183677279782,
+      "fc_gemm_flop_pct": 6.430833096000129,
+      "cpu_total_ms": 239.96999999508262,
+      "cpu_conv_gemm_ms": 57.19764984678477,
+      "cpu_fc_gemm_ms": 3.2968498999252915,
+      "cpu_gemm_ms": 71.24849979300052,
+      "cpu_im2col_col2im_ms": 74.66044998727739,
+      "cpu_elementwise_pool_sgd_ms": 94.06105021480471,
+      "cpu_gemm_time_pct": 29.690586237638254,
+      "cpu_im2col_time_pct": 31.1124098799047,
+      "cpu_elem_time_pct": 39.19700388245705,
+      "cpu_effective_gflops": 5.0578681336203335,
+      "source": "real_cpu_measurement"
+    }
+  ],
+  "wide_conv_cpu": {
+    "layer": "Conv 32->64 (3x3, 28x28, batch=64)",
+    "gemm_flop_pct": 99.88439306358381,
+    "cpu_total_ms": 181.50550010614097,
+    "cpu_gemm_ms": 90.8770002424717,
+    "cpu_im2col_col2im_ms": 75.42150001972914,
+    "cpu_elem_ms": 15.206999843940139,
+    "cpu_gemm_time_pct": 50.06845533018479,
+    "cpu_im2col_time_pct": 41.55328625062275,
+    "cpu_elem_time_pct": 8.378258419192463,
+    "source": "real_cpu_measurement"
+  },
+  "gpu_kernel_breakdown_mock": [
+    {
+      "batch": 16,
+      "gpu_profile": "Simulated Tesla T4 (compute-bound GEMM + BW-bound elementwise)",
+      "mock_gemm_ms": 0.3989,
+      "mock_non_gemm_ms": 0.074,
+      "mock_total_kernel_ms": 0.4729,
+      "mock_gemm_time_pct": 84.35,
+      "mock_non_gemm_time_pct": 15.65,
+      "source": "mock_simulation"
+    },
+    {
+      "batch": 64,
+      "gpu_profile": "Simulated Tesla T4 (compute-bound GEMM + BW-bound elementwise)",
+      "mock_gemm_ms": 0.8255,
+      "mock_non_gemm_ms": 0.1071,
+      "mock_total_kernel_ms": 0.9325,
+      "mock_gemm_time_pct": 88.52,
+      "mock_non_gemm_time_pct": 11.48,
+      "source": "mock_simulation"
+    },
+    {
+      "batch": 128,
+      "gpu_profile": "Simulated Tesla T4 (compute-bound GEMM + BW-bound elementwise)",
+      "mock_gemm_ms": 1.223,
+      "mock_non_gemm_ms": 0.1512,
+      "mock_total_kernel_ms": 1.3741,
+      "mock_gemm_time_pct": 89.0,
+      "mock_non_gemm_time_pct": 11.0,
+      "source": "mock_simulation"
+    },
+    {
+      "batch": 256,
+      "gpu_profile": "Simulated Tesla T4 (compute-bound GEMM + BW-bound elementwise)",
+      "mock_gemm_ms": 1.9312,
+      "mock_non_gemm_ms": 0.2394,
+      "mock_total_kernel_ms": 2.1706,
+      "mock_gemm_time_pct": 88.97,
+      "mock_non_gemm_time_pct": 11.03,
+      "source": "mock_simulation"
+    }
+  ]
+}
